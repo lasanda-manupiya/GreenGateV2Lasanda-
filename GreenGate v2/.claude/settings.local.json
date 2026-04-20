@@ -1,0 +1,29 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install:*)",
+      "Bash(npx tsc:*)",
+      "Bash(npm run:*)",
+      "Bash(python3 -m py_compile app/main.py)",
+      "Bash(docker compose:*)",
+      "Bash(pg_isready)",
+      "Bash(brew services:*)",
+      "Bash(pip install:*)",
+      "Bash(pip3 install:*)",
+      "Bash(python3 -m venv venv)",
+      "Bash(source venv/bin/activate)",
+      "Bash(python -c \"from app.main import app; print\\(''App loaded successfully''\\)\")",
+      "Bash(./venv/bin/pip install:*)",
+      "Read(//private/tmp/**)",
+      "Bash(ls \"/Users/seetanund/Downloads/SustainGate/GreenGate v2/frontend/\"*.json)",
+      "Bash(/usr/local/bin/node ./node_modules/.bin/tsc -b)",
+      "Bash(./venv/bin/python -c ' *)",
+      "Bash(/usr/bin/find app/models -name \"*.py\")",
+      "Bash(lsof -nP -iTCP:8000 -sTCP:LISTEN)",
+      "Bash(lsof -nP -iTCP:5173 -sTCP:LISTEN)",
+      "Bash(curl -sS -m 3 http://localhost:8000/health)",
+      "Bash(curl -sS -m 3 http://localhost:5173)",
+      "Bash(ps -p 53065 -o pid,lstart,command)"
+    ]
+  }
+}

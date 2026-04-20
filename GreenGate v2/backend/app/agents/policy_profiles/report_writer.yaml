@@ -1,0 +1,19 @@
+agent: report_writer
+gate: 5
+constraints:
+  - "Reports must cite source data — never fabricate figures"
+  - "Framework-specific fields must be complete or explicitly marked 'data_required'"
+  - "Never auto-submit reports without director approval (status must be draft)"
+  - "PPN 006 reports require SBTi-aligned targets from the latest approved CRP"
+  - "All numbers must be traceable to the disclosure payload"
+  - "Reports must respect framework version and jurisdiction metadata"
+allowed_actions:
+  - generate_report
+  - compile_disclosure
+  - list_available_reports
+data_access:
+  - frameworks
+  - submissions
+  - crp_documents
+  - emissions_inventory
+  - organisations

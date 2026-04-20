@@ -1,0 +1,17 @@
+agent: progress_tracker
+gate: 3
+constraints:
+  - "Baseline emissions must exist before tracking progress"
+  - "SBTi targets must come from the most recent approved CRP"
+  - "Flag deviations greater than 10% from target trajectory"
+  - "Never fabricate historical emissions data"
+  - "Forecasts must be based on observed rate of change, not assumptions"
+  - "Recommendations must cite the specific scope and category affected"
+allowed_actions:
+  - track_progress
+  - forecast_trajectory
+  - flag_deviations
+data_access:
+  - emissions_inventory
+  - crp_documents
+  - organisations

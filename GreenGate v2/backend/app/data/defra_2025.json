@@ -1,0 +1,340 @@
+{
+  "metadata": {
+    "source": "DEFRA/DESNZ UK Government GHG Conversion Factors",
+    "year": 2025,
+    "version": "1.0",
+    "notes": "Factors for use in company/organisation GHG reporting. Values are indicative for development purposes."
+  },
+  "factors": [
+    {
+      "key": "electricity_uk_grid",
+      "category": "Electricity (UK grid average)",
+      "scope": 2,
+      "unit": "kWh",
+      "factor_value": 0.20493,
+      "co2e_unit": "kgCO2e/kWh",
+      "source": "DEFRA/DESNZ 2025",
+      "year": 2025,
+      "notes": "UK grid average, reflecting 14.5% reduction from increased renewables"
+    },
+    {
+      "key": "electricity_renewable",
+      "category": "Electricity (renewable tariff)",
+      "scope": 2,
+      "unit": "kWh",
+      "factor_value": 0.0,
+      "co2e_unit": "kgCO2e/kWh",
+      "source": "DEFRA/DESNZ 2025",
+      "year": 2025,
+      "notes": "Market-based method for 100% renewable tariff with REGOs"
+    },
+    {
+      "key": "natural_gas",
+      "category": "Natural gas",
+      "scope": 1,
+      "unit": "kWh",
+      "factor_value": 0.18293,
+      "co2e_unit": "kgCO2e/kWh",
+      "source": "DEFRA/DESNZ 2025",
+      "year": 2025,
+      "notes": "Gross CV basis"
+    },
+    {
+      "key": "diesel",
+      "category": "Diesel",
+      "scope": 1,
+      "unit": "litres",
+      "factor_value": 2.51260,
+      "co2e_unit": "kgCO2e/litre",
+      "source": "DEFRA/DESNZ 2025",
+      "year": 2025,
+      "notes": "Average biofuel blend"
+    },
+    {
+      "key": "petrol",
+      "category": "Petrol",
+      "scope": 1,
+      "unit": "litres",
+      "factor_value": 2.16802,
+      "co2e_unit": "kgCO2e/litre",
+      "source": "DEFRA/DESNZ 2025",
+      "year": 2025,
+      "notes": "Average biofuel blend"
+    },
+    {
+      "key": "lpg",
+      "category": "LPG",
+      "scope": 1,
+      "unit": "litres",
+      "factor_value": 1.55370,
+      "co2e_unit": "kgCO2e/litre",
+      "source": "DEFRA/DESNZ 2025",
+      "year": 2025,
+      "notes": "Liquefied petroleum gas"
+    },
+    {
+      "key": "burning_oil",
+      "category": "Burning oil (kerosene)",
+      "scope": 1,
+      "unit": "litres",
+      "factor_value": 2.54010,
+      "co2e_unit": "kgCO2e/litre",
+      "source": "DEFRA/DESNZ 2025",
+      "year": 2025,
+      "notes": "Heating kerosene"
+    },
+    {
+      "key": "gas_oil",
+      "category": "Gas oil (red diesel)",
+      "scope": 1,
+      "unit": "litres",
+      "factor_value": 2.75776,
+      "co2e_unit": "kgCO2e/litre",
+      "source": "DEFRA/DESNZ 2025",
+      "year": 2025,
+      "notes": "Used in non-road mobile machinery"
+    },
+    {
+      "key": "rail_travel",
+      "category": "Rail travel (national rail)",
+      "scope": 3,
+      "unit": "passenger-km",
+      "factor_value": 0.03549,
+      "co2e_unit": "kgCO2e/passenger-km",
+      "source": "DEFRA/DESNZ 2025",
+      "year": 2025,
+      "notes": "Average across all UK rail services"
+    },
+    {
+      "key": "london_underground",
+      "category": "London Underground",
+      "scope": 3,
+      "unit": "passenger-km",
+      "factor_value": 0.02781,
+      "co2e_unit": "kgCO2e/passenger-km",
+      "source": "DEFRA/DESNZ 2025",
+      "year": 2025,
+      "notes": "London Underground and DLR"
+    },
+    {
+      "key": "domestic_flights",
+      "category": "Domestic flights",
+      "scope": 3,
+      "unit": "passenger-km",
+      "factor_value": 0.24587,
+      "co2e_unit": "kgCO2e/passenger-km",
+      "source": "DEFRA/DESNZ 2025",
+      "year": 2025,
+      "notes": "Including radiative forcing uplift"
+    },
+    {
+      "key": "short_haul_flights",
+      "category": "Short-haul flights (economy)",
+      "scope": 3,
+      "unit": "passenger-km",
+      "factor_value": 0.15353,
+      "co2e_unit": "kgCO2e/passenger-km",
+      "source": "DEFRA/DESNZ 2025",
+      "year": 2025,
+      "notes": "Economy class, including radiative forcing, to/from UK"
+    },
+    {
+      "key": "long_haul_flights",
+      "category": "Long-haul flights (economy)",
+      "scope": 3,
+      "unit": "passenger-km",
+      "factor_value": 0.19309,
+      "co2e_unit": "kgCO2e/passenger-km",
+      "source": "DEFRA/DESNZ 2025",
+      "year": 2025,
+      "notes": "Economy class, including radiative forcing"
+    },
+    {
+      "key": "taxi_regular",
+      "category": "Taxi (regular)",
+      "scope": 3,
+      "unit": "passenger-km",
+      "factor_value": 0.14887,
+      "co2e_unit": "kgCO2e/passenger-km",
+      "source": "DEFRA/DESNZ 2025",
+      "year": 2025,
+      "notes": "Average regular taxi"
+    },
+    {
+      "key": "bus_local",
+      "category": "Bus (local, outside London)",
+      "scope": 3,
+      "unit": "passenger-km",
+      "factor_value": 0.10312,
+      "co2e_unit": "kgCO2e/passenger-km",
+      "source": "DEFRA/DESNZ 2025",
+      "year": 2025,
+      "notes": "Average local bus service"
+    },
+    {
+      "key": "water_supply",
+      "category": "Water supply",
+      "scope": 3,
+      "unit": "m3",
+      "factor_value": 0.11000,
+      "co2e_unit": "kgCO2e/m3",
+      "source": "DEFRA/DESNZ 2025",
+      "year": 2025,
+      "notes": "Mains water supply"
+    },
+    {
+      "key": "water_treatment",
+      "category": "Water treatment",
+      "scope": 3,
+      "unit": "m3",
+      "factor_value": 0.23000,
+      "co2e_unit": "kgCO2e/m3",
+      "source": "DEFRA/DESNZ 2025",
+      "year": 2025,
+      "notes": "Wastewater treatment"
+    },
+    {
+      "key": "paper",
+      "category": "Paper",
+      "scope": 3,
+      "unit": "kg",
+      "factor_value": 0.91932,
+      "co2e_unit": "kgCO2e/kg",
+      "source": "DEFRA/DESNZ 2025",
+      "year": 2025,
+      "notes": "Primary material production"
+    },
+    {
+      "key": "general_waste_landfill",
+      "category": "General waste to landfill",
+      "scope": 3,
+      "unit": "kg",
+      "factor_value": 0.58659,
+      "co2e_unit": "kgCO2e/kg",
+      "source": "DEFRA/DESNZ 2025",
+      "year": 2025,
+      "notes": "Commercial and industrial waste to landfill"
+    },
+    {
+      "key": "mixed_recycling",
+      "category": "Mixed recycling",
+      "scope": 3,
+      "unit": "kg",
+      "factor_value": 0.02100,
+      "co2e_unit": "kgCO2e/kg",
+      "source": "DEFRA/DESNZ 2025",
+      "year": 2025,
+      "notes": "Open-loop recycling"
+    },
+    {
+      "key": "food_waste_ad",
+      "category": "Food waste (anaerobic digestion)",
+      "scope": 3,
+      "unit": "kg",
+      "factor_value": 0.01098,
+      "co2e_unit": "kgCO2e/kg",
+      "source": "DEFRA/DESNZ 2025",
+      "year": 2025,
+      "notes": "Anaerobic digestion of food waste"
+    },
+    {
+      "key": "it_equipment_spend",
+      "category": "IT equipment (average)",
+      "scope": 3,
+      "unit": "GBP",
+      "factor_value": 0.04723,
+      "co2e_unit": "kgCO2e/GBP",
+      "source": "DEFRA/DESNZ 2025",
+      "year": 2025,
+      "notes": "Spend-based factor for IT equipment and services"
+    },
+    {
+      "key": "business_services_spend",
+      "category": "Business services",
+      "scope": 3,
+      "unit": "GBP",
+      "factor_value": 0.02813,
+      "co2e_unit": "kgCO2e/GBP",
+      "source": "DEFRA/DESNZ 2025",
+      "year": 2025,
+      "notes": "Spend-based factor for professional/business services"
+    },
+    {
+      "key": "construction_spend",
+      "category": "Construction",
+      "scope": 3,
+      "unit": "GBP",
+      "factor_value": 0.08921,
+      "co2e_unit": "kgCO2e/GBP",
+      "source": "DEFRA/DESNZ 2025",
+      "year": 2025,
+      "notes": "Spend-based factor for construction activities"
+    },
+    {
+      "key": "food_catering_spend",
+      "category": "Food and catering",
+      "scope": 3,
+      "unit": "GBP",
+      "factor_value": 0.05814,
+      "co2e_unit": "kgCO2e/GBP",
+      "source": "DEFRA/DESNZ 2025",
+      "year": 2025,
+      "notes": "Spend-based factor for food and catering services"
+    },
+    {
+      "key": "freight_road",
+      "category": "Freight (HGV, all sizes)",
+      "scope": 3,
+      "unit": "tonne-km",
+      "factor_value": 0.11312,
+      "co2e_unit": "kgCO2e/tonne-km",
+      "source": "DEFRA/DESNZ 2025",
+      "year": 2025,
+      "notes": "Average laden HGV, all rigid and articulated"
+    },
+    {
+      "key": "freight_van",
+      "category": "Freight (van, up to 3.5t)",
+      "scope": 3,
+      "unit": "tonne-km",
+      "factor_value": 0.58221,
+      "co2e_unit": "kgCO2e/tonne-km",
+      "source": "DEFRA/DESNZ 2025",
+      "year": 2025,
+      "notes": "Average van, class I-III"
+    },
+    {
+      "key": "freight_rail",
+      "category": "Freight (rail)",
+      "scope": 3,
+      "unit": "tonne-km",
+      "factor_value": 0.02548,
+      "co2e_unit": "kgCO2e/tonne-km",
+      "source": "DEFRA/DESNZ 2025",
+      "year": 2025,
+      "notes": "UK rail freight"
+    },
+    {
+      "key": "hotel_uk",
+      "category": "Hotel stay (UK)",
+      "scope": 3,
+      "unit": "room-night",
+      "factor_value": 10.20000,
+      "co2e_unit": "kgCO2e/room-night",
+      "source": "DEFRA/DESNZ 2025",
+      "year": 2025,
+      "notes": "Average UK hotel stay per room per night"
+    },
+    {
+      "key": "wfh_emissions",
+      "category": "Working from home",
+      "scope": 3,
+      "unit": "FTE-hour",
+      "factor_value": 0.13500,
+      "co2e_unit": "kgCO2e/FTE-hour",
+      "source": "DEFRA/DESNZ 2025 (EcoAct methodology)",
+      "year": 2025,
+      "notes": "Average UK home working emissions per FTE per hour"
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+agent: audit_prep
+gate: 4
+constraints:
+  - "Evidence packs must include all data categories (emissions, audit, submissions, security)"
+  - "Readiness checks must be deterministic — never AI-generated"
+  - "Pre-audit narrative must cite specific records and check IDs"
+  - "Never fabricate evidence or records in any output"
+  - "Flag missing or incomplete data categories as warnings, not pass"
+  - "Evidence packs must be reproducible from the same data state"
+allowed_actions:
+  - generate_evidence_pack
+  - run_readiness_check
+  - pre_audit_review
+data_access:
+  - emissions_inventory
+  - audit_entries
+  - crp_documents
+  - security_checks
+  - submissions
+  - organisations

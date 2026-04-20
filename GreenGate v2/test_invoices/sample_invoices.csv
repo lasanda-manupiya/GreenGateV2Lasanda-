@@ -1,0 +1,14 @@
+date,description,supplier,amount,unit,category
+2025-01-15,Electricity - Office Q1,British Gas Business,4500,kWh,utilities
+2025-02-01,Natural Gas Heating Jan,British Gas,1200,kWh,utilities
+2025-01-20,Diesel fuel for fleet vehicles,Shell UK,850,litres,fuel
+2025-03-01,Train tickets London to Manchester,Trainline,320,GBP,travel
+2025-02-15,Short haul flight to Paris,EasyJet,450,GBP,travel
+2025-01-30,DHL Courier - parcel delivery,DHL Express,180,GBP,logistics
+2025-03-10,Office stationery and paper,Staples UK,95,GBP,office supplies
+2025-02-20,IT consulting services,Accenture,5000,GBP,professional services
+2025-01-25,Laptop computers x3,Dell UK,3600,GBP,it equipment
+2025-03-15,Water supply charges Q1,Thames Water,210,GBP,utilities
+2025-02-28,Waste disposal and skip hire,Biffa Waste,450,tonnes,waste
+2025-01-10,General office expenses,Various,300,GBP,general
+2025-03-20,Staff Christmas lunch,Restaurant Ltd,500,GBP,entertainment

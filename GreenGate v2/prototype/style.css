@@ -1,0 +1,248 @@
+/* Art direction: GreenGate Sustainability Governance → Warm, approachable, trustworthy
+   Palette: Earth-inspired — deep forest greens, warm amber/gold, off-white surfaces
+   Typography: Fraunces (display, warm serif with character) + Plus Jakarta Sans (body, geometric sans)
+   Density: Balanced — spacious and breathable, not data-overloaded */
+
+/* ========================================
+   FONTS
+   ======================================== */
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body: 'Plus Jakarta Sans', 'Helvetica Neue', sans-serif;
+
+  /* ========================================
+     TYPE SCALE
+     ======================================== */
+  --text-xs:   clamp(0.75rem,  0.7rem  + 0.25vw, 0.875rem);
+  --text-sm:   clamp(0.875rem, 0.8rem  + 0.35vw, 1rem);
+  --text-base: clamp(1rem,     0.95rem + 0.25vw, 1.125rem);
+  --text-lg:   clamp(1.125rem, 1rem    + 0.75vw, 1.5rem);
+  --text-xl:   clamp(1.5rem,   1.2rem  + 1.25vw, 2.25rem);
+  --text-2xl:  clamp(2rem,     1.2rem  + 2.5vw,  3.5rem);
+  --text-3xl:  clamp(2.5rem,   1rem    + 4vw,    5rem);
+  --text-hero: clamp(3rem,     0.5rem  + 7vw,    8rem);
+
+  /* ========================================
+     SPACING (4px base)
+     ======================================== */
+  --space-1:  0.25rem;
+  --space-2:  0.5rem;
+  --space-3:  0.75rem;
+  --space-4:  1rem;
+  --space-5:  1.25rem;
+  --space-6:  1.5rem;
+  --space-8:  2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+  --space-32: 8rem;
+
+  /* ========================================
+     RADIUS
+     ======================================== */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-full: 9999px;
+
+  /* ========================================
+     TRANSITIONS
+     ======================================== */
+  --transition-interactive: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* ========================================
+     CONTENT WIDTHS
+     ======================================== */
+  --content-narrow: 640px;
+  --content-default: 960px;
+  --content-wide: 1200px;
+  --content-full: 100%;
+}
+
+/* ========================================
+   LIGHT MODE — GreenGate Earth Palette
+   ======================================== */
+:root, [data-theme="light"] {
+  /* Surfaces (Warm off-white / cream) */
+  --color-bg:             #F8F6F1;
+  --color-surface:        #FFFFFF;
+  --color-surface-2:      #FBF9F4;
+  --color-surface-offset: #F0EDE6;
+  --color-surface-offset-2: #E8E5DD;
+  --color-surface-dynamic: #DDD9CF;
+  --color-divider:        #D6D2CA;
+  --color-border:         #C9C4BA;
+
+  /* Text */
+  --color-text:           #1A1F1C;
+  --color-text-muted:     #4A5650;
+  --color-text-faint:     #728078;
+  --color-text-inverse:   #F8F6F1;
+
+  /* Primary Accent — Deep Forest Green */
+  --color-primary:        #1B6B3A;
+  --color-primary-hover:  #155A30;
+  --color-primary-active: #0E4824;
+  --color-primary-highlight: #D5E8DC;
+
+  /* Secondary Accent — Warm Amber/Gold */
+  --color-secondary:      #D4910E;
+  --color-secondary-hover: #B87C0B;
+  --color-secondary-active: #9A6808;
+  --color-secondary-highlight: #F5E8CC;
+
+  /* Success — Green (passed gates) */
+  --color-success:        #1B6B3A;
+  --color-success-hover:  #155A30;
+  --color-success-active: #0E4824;
+  --color-success-highlight: #D5E8DC;
+
+  /* Warning — Amber (in-progress) */
+  --color-warning:        #D4910E;
+  --color-warning-hover:  #B87C0B;
+  --color-warning-active: #9A6808;
+  --color-warning-highlight: #F5E8CC;
+
+  /* Error — Red (attention needed) */
+  --color-error:          #C53D3D;
+  --color-error-hover:    #A83333;
+  --color-error-active:   #8B2929;
+  --color-error-highlight: #F5D5D5;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px oklch(0.25 0.02 140 / 0.06);
+  --shadow-md: 0 4px 12px oklch(0.25 0.02 140 / 0.08);
+  --shadow-lg: 0 12px 32px oklch(0.25 0.02 140 / 0.12);
+
+  /* Sidebar */
+  --sidebar-bg: #151D18;
+  --sidebar-surface: #1A2520;
+  --sidebar-text: #C8D5CD;
+  --sidebar-text-muted: #7A8F82;
+  --sidebar-active-bg: rgba(27, 107, 58, 0.2);
+  --sidebar-hover-bg: rgba(255, 255, 255, 0.06);
+
+  /* Gate Colors (light-to-dark green progression) */
+  --gate-1-color: #4CAF6E;
+  --gate-2-color: #3A9A58;
+  --gate-3-color: #D4910E;
+  --gate-4-color: #8A9490;
+  --gate-5-color: #8A9490;
+}
+
+/* ========================================
+   DARK MODE
+   ======================================== */
+[data-theme="dark"] {
+  --color-bg:             #111916;
+  --color-surface:        #172019;
+  --color-surface-2:      #1A2520;
+  --color-surface-offset: #1E2A24;
+  --color-surface-offset-2: #243029;
+  --color-surface-dynamic: #2D3B33;
+  --color-divider:        #2A3630;
+  --color-border:         #364840;
+
+  --color-text:           #D5E0DA;
+  --color-text-muted:     #8A9F93;
+  --color-text-faint:     #5A6E63;
+  --color-text-inverse:   #1A1F1C;
+
+  --color-primary:        #4CAF6E;
+  --color-primary-hover:  #3A9A58;
+  --color-primary-active: #2D8A4A;
+  --color-primary-highlight: #1E3A28;
+
+  --color-secondary:      #F0B849;
+  --color-secondary-hover: #E5A832;
+  --color-secondary-active: #D4910E;
+  --color-secondary-highlight: #3A3020;
+
+  --color-success:        #4CAF6E;
+  --color-success-hover:  #3A9A58;
+  --color-success-active: #2D8A4A;
+  --color-success-highlight: #1E3A28;
+
+  --color-warning:        #F0B849;
+  --color-warning-hover:  #E5A832;
+  --color-warning-active: #D4910E;
+  --color-warning-highlight: #3A3020;
+
+  --color-error:          #E66767;
+  --color-error-hover:    #D45252;
+  --color-error-active:   #C53D3D;
+  --color-error-highlight: #3A2020;
+
+  --shadow-sm: 0 1px 2px oklch(0 0 0 / 0.25);
+  --shadow-md: 0 4px 12px oklch(0 0 0 / 0.35);
+  --shadow-lg: 0 12px 32px oklch(0 0 0 / 0.45);
+
+  --sidebar-bg: #0D1410;
+  --sidebar-surface: #111916;
+  --sidebar-text: #C8D5CD;
+  --sidebar-text-muted: #6A7D72;
+  --sidebar-active-bg: rgba(76, 175, 110, 0.15);
+  --sidebar-hover-bg: rgba(255, 255, 255, 0.05);
+
+  --gate-1-color: #4CAF6E;
+  --gate-2-color: #3A9A58;
+  --gate-3-color: #F0B849;
+  --gate-4-color: #5A6E63;
+  --gate-5-color: #5A6E63;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --color-bg:             #111916;
+    --color-surface:        #172019;
+    --color-surface-2:      #1A2520;
+    --color-surface-offset: #1E2A24;
+    --color-surface-offset-2: #243029;
+    --color-surface-dynamic: #2D3B33;
+    --color-divider:        #2A3630;
+    --color-border:         #364840;
+    --color-text:           #D5E0DA;
+    --color-text-muted:     #8A9F93;
+    --color-text-faint:     #5A6E63;
+    --color-text-inverse:   #1A1F1C;
+    --color-primary:        #4CAF6E;
+    --color-primary-hover:  #3A9A58;
+    --color-primary-active: #2D8A4A;
+    --color-primary-highlight: #1E3A28;
+    --color-secondary:      #F0B849;
+    --color-secondary-hover: #E5A832;
+    --color-secondary-active: #D4910E;
+    --color-secondary-highlight: #3A3020;
+    --color-success:        #4CAF6E;
+    --color-success-hover:  #3A9A58;
+    --color-success-active: #2D8A4A;
+    --color-success-highlight: #1E3A28;
+    --color-warning:        #F0B849;
+    --color-warning-hover:  #E5A832;
+    --color-warning-active: #D4910E;
+    --color-warning-highlight: #3A3020;
+    --color-error:          #E66767;
+    --color-error-hover:    #D45252;
+    --color-error-active:   #C53D3D;
+    --color-error-highlight: #3A2020;
+    --shadow-sm: 0 1px 2px oklch(0 0 0 / 0.25);
+    --shadow-md: 0 4px 12px oklch(0 0 0 / 0.35);
+    --shadow-lg: 0 12px 32px oklch(0 0 0 / 0.45);
+    --sidebar-bg: #0D1410;
+    --sidebar-surface: #111916;
+    --sidebar-text: #C8D5CD;
+    --sidebar-text-muted: #6A7D72;
+    --sidebar-active-bg: rgba(76, 175, 110, 0.15);
+    --sidebar-hover-bg: rgba(255, 255, 255, 0.05);
+    --gate-1-color: #4CAF6E;
+    --gate-2-color: #3A9A58;
+    --gate-3-color: #F0B849;
+    --gate-4-color: #5A6E63;
+    --gate-5-color: #5A6E63;
+  }
+}

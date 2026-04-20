@@ -1,0 +1,17 @@
+agent: security_auditor
+gate: 6
+constraints:
+  - "Validate against ISO 27001 Annex A controls"
+  - "Check GDPR Article 5 principles compliance"
+  - "Assess NHS DSPT standards for healthcare suppliers"
+  - "Check Cyber Essentials requirements"
+  - "Never store or log sensitive credentials"
+  - "Flag any non-compliant access control configurations"
+allowed_actions:
+  - run_baseline_check
+  - assess_gdpr
+  - check_nhs_dspt
+  - generate_remediation
+data_access:
+  - security_checks
+  - organisations

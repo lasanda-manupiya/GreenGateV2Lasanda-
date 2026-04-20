@@ -1,0 +1,1166 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<!--
+   ______                            __
+  / ____/___  ____ ___  ____  __  __/ /____  _____
+ / /   / __ \/ __ `__ \/ __ \/ / / / __/ _ \/ ___/
+/ /___/ /_/ / / / / / / /_/ / /_/ / /_/  __/ /
+\____/\____/_/ /_/ /_/ .___/\__,_/\__/\___/_/
+                    /_/
+        Created with Perplexity Computer
+        https://www.perplexity.ai/computer
+-->
+
+<!-- Perplexity Computer Attribution — SEO Meta Tags -->
+<meta name="generator" content="Perplexity Computer">
+<meta name="author" content="Perplexity Computer">
+<meta property="og:see_also" content="https://www.perplexity.ai/computer">
+<link rel="author" href="https://www.perplexity.ai/computer">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GreenGate v2 — Sustainability Governance Platform</title>
+<meta name="description" content="AI-powered sustainability governance gates for SMEs. Agentic compliance with CSRD, GHG Protocol, SBTi frameworks.">
+<link rel="stylesheet" href="base.css">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="app.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<!-- ====================================
+     DASHBOARD SHELL
+     ==================================== -->
+<div class="dashboard">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar__inner">
+      <!-- Logo -->
+      <div class="sidebar__logo">
+        <svg viewBox="0 0 40 40" width="36" height="36" fill="none" aria-label="GreenGate logo">
+          <rect x="4" y="10" width="5" height="26" rx="2" fill="currentColor" opacity="0.9"/>
+          <rect x="31" y="10" width="5" height="26" rx="2" fill="currentColor" opacity="0.9"/>
+          <path d="M9 10 C9 4, 20 0, 20 0 C20 0, 31 4, 31 10" stroke="currentColor" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+          <path d="M20 14 C20 14, 28 16, 28 24 C28 24, 20 22, 20 14Z" fill="#4CAF6E" opacity="0.85"/>
+          <path d="M20 14 C20 14, 12 16, 12 24 C12 24, 20 22, 20 14Z" fill="#1B6B3A" opacity="0.75"/>
+          <line x1="20" y1="14" x2="20" y2="26" stroke="#1B6B3A" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+        <span class="sidebar__brand">GreenGate</span>
+      </div>
+
+      <!-- Navigation -->
+      <nav class="sidebar__nav" aria-label="Main navigation">
+        <button class="sidebar__link sidebar__link--active" data-view="overview" aria-current="page">
+          <svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="6" height="6" rx="1"/><rect x="11" y="3" width="6" height="6" rx="1"/><rect x="3" y="11" width="6" height="6" rx="1"/><rect x="11" y="11" width="6" height="6" rx="1"/></svg>
+          <span>Overview</span>
+        </button>
+        <button class="sidebar__link" data-view="agents">
+          <svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="7" r="3"/><path d="M4 17c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M14 4l2 2-2 2"/></svg>
+          <span>AI Agents</span>
+          <span class="sidebar__badge">5</span>
+        </button>
+        <button class="sidebar__link" data-view="journey">
+          <svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3v14"/><circle cx="10" cy="5" r="2"/><circle cx="10" cy="10" r="2"/><circle cx="10" cy="15" r="2"/></svg>
+          <span>Gate Journey</span>
+        </button>
+        <button class="sidebar__link" data-view="governance">
+          <svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2l7 4v5c0 4.4-3 8.2-7 9.5-4-1.3-7-5.1-7-9.5V6l7-4z"/><path d="M7 10l2 2 4-4"/></svg>
+          <span>Governance</span>
+        </button>
+        <button class="sidebar__link" data-view="evidence">
+          <svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3h7l4 4v10a1 1 0 01-1 1H5a1 1 0 01-1-1V4a1 1 0 011-1z"/><path d="M12 3v4h4"/><path d="M8 10h4M8 13h4"/></svg>
+          <span>Evidence</span>
+        </button>
+        <button class="sidebar__link" data-view="reports">
+          <svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h14a1 1 0 011 1v12a1 1 0 01-1 1H3a1 1 0 01-1-1V4a1 1 0 011-1z"/><path d="M6 13V9M10 13V7M14 13v-3"/></svg>
+          <span>Reports</span>
+        </button>
+      </nav>
+
+      <!-- Bottom section -->
+      <div class="sidebar__bottom">
+        <div class="sidebar__company">
+          <div class="sidebar__company-icon">AM</div>
+          <div>
+            <div class="sidebar__company-name">Acme Mfg. Ltd</div>
+            <div class="sidebar__company-tier">Growth Plan</div>
+          </div>
+        </div>
+        <div class="sidebar__theme-toggle">
+          <button id="themeToggle" aria-label="Toggle theme" title="Toggle light/dark mode">
+            <svg class="icon-sun" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="10" r="4"/><path d="M10 2v2M10 16v2M2 10h2M16 10h2M4.9 4.9l1.4 1.4M13.7 13.7l1.4 1.4M4.9 15.1l1.4-1.4M13.7 6.3l1.4-1.4"/></svg>
+            <svg class="icon-moon" viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 11.5A7.5 7.5 0 018.5 3c0-.3 0-.6.1-.9A7.5 7.5 0 1017.9 12c-.3.1-.6-.2-.9-.5z"/></svg>
+          </button>
+        </div>
+        <a href="https://sustainzone.io" target="_blank" rel="noopener noreferrer" class="sidebar__powered">
+          Powered by SustainZone
+        </a>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MOBILE HEADER -->
+  <header class="mobile-header" id="mobileHeader">
+    <button class="mobile-header__menu" id="menuToggle" aria-label="Toggle menu">
+      <svg viewBox="0 0 20 20" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M3 6h14M3 10h14M3 14h14"/></svg>
+    </button>
+    <span class="mobile-header__title">GreenGate</span>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="main" id="mainContent">
+
+    <!-- ========== VIEW 1: OVERVIEW ========== -->
+    <section class="view view--active" id="view-overview">
+      <!-- Welcome -->
+      <div class="view__header">
+        <div>
+          <h1 class="view__title">Welcome back, Sarah</h1>
+          <p class="view__subtitle">2 of 5 gates passed. Your agents are working.</p>
+        </div>
+        <div class="view__header-actions">
+          <span class="live-indicator"><span class="live-indicator__dot"></span> Agents active</span>
+        </div>
+      </div>
+
+      <!-- Gate Progress Bar -->
+      <div class="gate-progress">
+        <div class="gate-progress__track">
+          <div class="gate-progress__bar" style="width:40%"></div>
+        </div>
+        <div class="gate-progress__gates">
+          <div class="gate-progress__gate gate-progress__gate--passed" data-tooltip="Gate 1: Assess — Completed 15 Jan 2026">
+            <div class="gate-progress__icon gate-progress__icon--passed">
+              <svg viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 10 8 13 15 6"/></svg>
+            </div>
+            <div class="gate-progress__label">Assess</div>
+            <div class="gate-progress__agent">Carbon Auditor</div>
+          </div>
+          <div class="gate-progress__gate gate-progress__gate--passed" data-tooltip="Gate 2: Plan — Completed 28 Feb 2026">
+            <div class="gate-progress__icon gate-progress__icon--passed">
+              <svg viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 10 8 13 15 6"/></svg>
+            </div>
+            <div class="gate-progress__label">Plan</div>
+            <div class="gate-progress__agent">Strategy Builder</div>
+          </div>
+          <div class="gate-progress__gate gate-progress__gate--current" data-tooltip="Gate 3: Implement — In Progress">
+            <div class="gate-progress__icon gate-progress__icon--current">
+              <span class="pulse-ring"></span>
+              3
+            </div>
+            <div class="gate-progress__label">Implement</div>
+            <div class="gate-progress__agent gate-progress__agent--active">Progress Tracker <span class="typing-dots"><span>.</span><span>.</span><span>.</span></span></div>
+          </div>
+          <div class="gate-progress__gate gate-progress__gate--locked" data-tooltip="Gate 4: Verify — Locked">
+            <div class="gate-progress__icon gate-progress__icon--locked">
+              <svg viewBox="0 0 20 20" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="9" width="10" height="8" rx="1.5"/><path d="M7 9V6a3 3 0 016 0v3"/></svg>
+            </div>
+            <div class="gate-progress__label">Verify</div>
+            <div class="gate-progress__agent">Audit Prep</div>
+          </div>
+          <div class="gate-progress__gate gate-progress__gate--locked" data-tooltip="Gate 5: Report — Locked">
+            <div class="gate-progress__icon gate-progress__icon--locked">
+              <svg viewBox="0 0 20 20" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="9" width="10" height="8" rx="1.5"/><path d="M7 9V6a3 3 0 016 0v3"/></svg>
+            </div>
+            <div class="gate-progress__label">Report</div>
+            <div class="gate-progress__agent">Report Writer</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Agent Activity Feed -->
+      <div class="activity-feed">
+        <div class="activity-feed__header">
+          <h2 class="activity-feed__title">
+            <svg viewBox="0 0 20 20" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M10 3v14"/><path d="M3 10h14"/></svg>
+            Agent Activity
+          </h2>
+          <span class="activity-feed__live"><span class="live-dot"></span> Live</span>
+        </div>
+        <div class="activity-feed__list" id="activityFeed">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+
+      <!-- KPI Cards -->
+      <div class="kpi-row">
+        <div class="kpi-card">
+          <div class="kpi-card__header">
+            <span class="kpi-card__label">Compliance Score</span>
+            <span class="kpi-card__badge kpi-card__badge--warning">Amber</span>
+          </div>
+          <div class="kpi-card__value-row">
+            <span class="kpi-card__value">67%</span>
+          </div>
+          <div class="kpi-card__gauge">
+            <div class="kpi-card__gauge-fill" data-value="67"></div>
+          </div>
+          <div class="kpi-card__context">Target: 80% by Gate 4</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-card__header">
+            <span class="kpi-card__label">Agent Actions (24h)</span>
+            <span class="kpi-card__badge kpi-card__badge--success">Active</span>
+          </div>
+          <div class="kpi-card__value-row">
+            <span class="kpi-card__value">47</span>
+            <span class="kpi-card__delta kpi-card__delta--up">+12%</span>
+          </div>
+          <canvas id="sparklineActions" class="kpi-card__sparkline" height="32"></canvas>
+          <div class="kpi-card__context">3 agents active today</div>
+        </div>
+        <div class="kpi-card">
+          <div class="kpi-card__header">
+            <span class="kpi-card__label">Next Deadline</span>
+            <span class="kpi-card__badge kpi-card__badge--info">CSRD</span>
+          </div>
+          <div class="kpi-card__value-row">
+            <span class="kpi-card__value kpi-card__value--sm">14 Jun 2026</span>
+          </div>
+          <div class="kpi-card__countdown" id="countdown">
+            <span class="countdown__item"><span class="countdown__num" id="cdDays">98</span><span class="countdown__unit">days</span></span>
+            <span class="countdown__item"><span class="countdown__num" id="cdHours">12</span><span class="countdown__unit">hrs</span></span>
+            <span class="countdown__item"><span class="countdown__num" id="cdMins">18</span><span class="countdown__unit">min</span></span>
+          </div>
+          <div class="kpi-card__context">CSRD Filing deadline</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== VIEW 2: AI AGENTS ========== -->
+    <section class="view" id="view-agents">
+      <div class="view__header">
+        <div>
+          <h1 class="view__title">AI Agents</h1>
+          <p class="view__subtitle">5 specialized agents power your sustainability journey. Each one connects to your systems, does real work, and is governed by compliance rules.</p>
+        </div>
+      </div>
+
+      <div class="agents-grid" id="agentsGrid">
+        <!-- Agent 1: Carbon Auditor -->
+        <div class="agent-card agent-card--active" data-agent="carbon-auditor">
+          <div class="agent-card__header">
+            <div class="agent-card__icon agent-card__icon--green">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22C6.5 22 2 17.5 2 12S6.5 2 12 2s10 4.5 10 10-4.5 10-10 10z"/><path d="M8 12l2 2 4-4"/><path d="M12 6v2M12 16v2M6 12H4M20 12h-2"/></svg>
+            </div>
+            <div class="agent-card__title-group">
+              <h3 class="agent-card__name">Carbon Auditor</h3>
+              <span class="agent-card__gate">Gate 1 · Assess</span>
+            </div>
+            <span class="agent-card__status agent-card__status--active"><span class="status-dot status-dot--green"></span> Active</span>
+          </div>
+          <div class="agent-card__body">
+            <div class="agent-card__section">
+              <h4>What I Do</h4>
+              <p>I connect to your accounting software and energy suppliers to extract spend data. I map your transactions to emission factors and build your Scope 1, 2 &amp; 3 greenhouse gas inventory — automatically, with confidence tiers for every data point.</p>
+            </div>
+            <div class="agent-card__section">
+              <h4>Connected Systems</h4>
+              <div class="agent-card__systems">
+                <span class="system-badge"><svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="12" height="8" rx="1"/><path d="M5 4V3a3 3 0 016 0v1"/></svg> Xero</span>
+                <span class="system-badge"><svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="4" width="12" height="8" rx="1"/><path d="M5 4V3a3 3 0 016 0v1"/></svg> Sage</span>
+                <span class="system-badge"><svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="5"/><path d="M8 5v3l2 2"/></svg> Energy APIs</span>
+                <span class="system-badge"><svg viewBox="0 0 16 16" width="14" height="14" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 3h10v10H3z"/><path d="M7 7h2v2H7z"/></svg> Emission Factor DB</span>
+              </div>
+            </div>
+            <div class="agent-card__section">
+              <h4>Recent Actions</h4>
+              <div class="agent-card__actions">
+                <div class="agent-action"><span class="agent-action__time">09:00</span> Scheduled re-scan of supplier invoices — 12 new entries found</div>
+                <div class="agent-action"><span class="agent-action__time">Yesterday</span> Scope 3 inventory updated with Q4 supplier data</div>
+                <div class="agent-action"><span class="agent-action__time">2 days ago</span> Emission factor DB refreshed — DEFRA 2025 factors loaded</div>
+              </div>
+            </div>
+            <div class="agent-card__section">
+              <h4>Governance Rules</h4>
+              <div class="agent-card__rules">
+                <span class="rule-badge rule-badge--pass"><svg viewBox="0 0 16 16" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 8 7 11 12 5"/></svg> GHG Protocol methodology</span>
+                <span class="rule-badge rule-badge--pass"><svg viewBox="0 0 16 16" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 8 7 11 12 5"/></svg> Confidence tiers disclosed</span>
+                <span class="rule-badge rule-badge--pass"><svg viewBox="0 0 16 16" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 8 7 11 12 5"/></svg> Supplier identifiers redacted</span>
+              </div>
+            </div>
+            <div class="agent-card__stats">
+              <div class="agent-stat"><span class="agent-stat__value">12</span><span class="agent-stat__label">Requests (24h)</span></div>
+              <div class="agent-stat"><span class="agent-stat__value">47</span><span class="agent-stat__label">Actions done</span></div>
+              <div class="agent-stat"><span class="agent-stat__value">3,284</span><span class="agent-stat__label">Data points</span></div>
+              <div class="agent-stat"><span class="agent-stat__value">09:00</span><span class="agent-stat__label">Last active</span></div>
+            </div>
+          </div>
+          <button class="agent-card__toggle" aria-label="Expand agent details">
+            <svg viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 8l4 4 4-4"/></svg>
+          </button>
+        </div>
+
+        <!-- Agent 2: Strategy Builder -->
+        <div class="agent-card agent-card--active" data-agent="strategy-builder">
+          <div class="agent-card__header">
+            <div class="agent-card__icon agent-card__icon--blue">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20l4-4M6 16l4 4M12 2l2 6 6 2-6 2-2 6-2-6-6-2 6-2z"/></svg>
+            </div>
+            <div class="agent-card__title-group">
+              <h3 class="agent-card__name">Strategy Builder</h3>
+              <span class="agent-card__gate">Gate 2 · Plan</span>
+            </div>
+            <span class="agent-card__status agent-card__status--active"><span class="status-dot status-dot--green"></span> Active</span>
+          </div>
+          <div class="agent-card__body">
+            <div class="agent-card__section">
+              <h4>What I Do</h4>
+              <p>I read your baseline assessment and sector profile to recommend the right frameworks. I generate your Carbon Reduction Plan with science-based targets and identify quick wins for immediate impact. Your strategy stays aligned with SBTi and PPN 06/21.</p>
+            </div>
+            <div class="agent-card__section">
+              <h4>Connected Systems</h4>
+              <div class="agent-card__systems">
+                <span class="system-badge">Baseline Data</span>
+                <span class="system-badge">SBTi Database</span>
+                <span class="system-badge">Industry Benchmarks</span>
+              </div>
+            </div>
+            <div class="agent-card__section">
+              <h4>Recent Actions</h4>
+              <div class="agent-card__actions">
+                <div class="agent-action"><span class="agent-action__time">10:15</span> Carbon Reduction Plan v3 updated with Q1 progress</div>
+                <div class="agent-action"><span class="agent-action__time">Yesterday</span> SBTi near-term target recalculated — 42% reduction by 2030</div>
+                <div class="agent-action"><span class="agent-action__time">3 days ago</span> Quick win identified: LED retrofit saves 12 tCO₂e/yr</div>
+              </div>
+            </div>
+            <div class="agent-card__section">
+              <h4>Governance Rules</h4>
+              <div class="agent-card__rules">
+                <span class="rule-badge rule-badge--pass"><svg viewBox="0 0 16 16" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 8 7 11 12 5"/></svg> SBTi criteria alignment</span>
+                <span class="rule-badge rule-badge--pass"><svg viewBox="0 0 16 16" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 8 7 11 12 5"/></svg> PPN 06/21 compliant</span>
+                <span class="rule-badge rule-badge--pass"><svg viewBox="0 0 16 16" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 8 7 11 12 5"/></svg> Data consistent with baseline</span>
+              </div>
+            </div>
+            <div class="agent-card__stats">
+              <div class="agent-stat"><span class="agent-stat__value">8</span><span class="agent-stat__label">Requests (24h)</span></div>
+              <div class="agent-stat"><span class="agent-stat__value">23</span><span class="agent-stat__label">Actions done</span></div>
+              <div class="agent-stat"><span class="agent-stat__value">1,846</span><span class="agent-stat__label">Data points</span></div>
+              <div class="agent-stat"><span class="agent-stat__value">10:15</span><span class="agent-stat__label">Last active</span></div>
+            </div>
+          </div>
+          <button class="agent-card__toggle" aria-label="Expand agent details">
+            <svg viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 8l4 4 4-4"/></svg>
+          </button>
+        </div>
+
+        <!-- Agent 3: Progress Tracker -->
+        <div class="agent-card agent-card--current" data-agent="progress-tracker">
+          <div class="agent-card__header">
+            <div class="agent-card__icon agent-card__icon--amber">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+            </div>
+            <div class="agent-card__title-group">
+              <h3 class="agent-card__name">Progress Tracker</h3>
+              <span class="agent-card__gate">Gate 3 · Implement</span>
+            </div>
+            <span class="agent-card__status agent-card__status--working"><span class="status-dot status-dot--amber"></span> Working<span class="typing-dots"><span>.</span><span>.</span><span>.</span></span></span>
+          </div>
+          <div class="agent-card__body">
+            <div class="agent-card__section">
+              <h4>What I Do</h4>
+              <p>I continuously collect emissions data from your connected systems each month. I track progress against your targets, flag non-responsive suppliers, and send automatic reminders. Think of me as your always-on sustainability data collector.</p>
+            </div>
+            <div class="agent-card__section">
+              <h4>Connected Systems</h4>
+              <div class="agent-card__systems">
+                <span class="system-badge">Xero (ongoing)</span>
+                <span class="system-badge">Energy Monitoring</span>
+                <span class="system-badge">Supplier Portal</span>
+              </div>
+            </div>
+            <div class="agent-card__section">
+              <h4>Recent Actions</h4>
+              <div class="agent-card__actions">
+                <div class="agent-action agent-action--live"><span class="agent-action__time">11:34</span> Collecting March 2026 energy consumption from Xero<span class="typing-dots"><span>.</span><span>.</span><span>.</span></span></div>
+                <div class="agent-action"><span class="agent-action__time">11:32</span> Flagged: 3 suppliers haven't responded to Scope 3 data request</div>
+                <div class="agent-action"><span class="agent-action__time">11:28</span> Monthly emissions for Feb 2026 verified — 4,230 tCO₂e (↓8% vs target)</div>
+              </div>
+            </div>
+            <div class="agent-card__section">
+              <h4>Governance Rules</h4>
+              <div class="agent-card__rules">
+                <span class="rule-badge rule-badge--pass"><svg viewBox="0 0 16 16" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 8 7 11 12 5"/></svg> Data freshness &lt; 30 days</span>
+                <span class="rule-badge rule-badge--pass"><svg viewBox="0 0 16 16" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 8 7 11 12 5"/></svg> Target trajectory monitored</span>
+                <span class="rule-badge rule-badge--pass"><svg viewBox="0 0 16 16" width="12" height="12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="4 8 7 11 12 5"/></svg> Auto-alerts enabled</span>
+              </div>
+            </div>
+            <div class="agent-card__stats">
+              <div class="agent-stat"><span class="agent-stat__value">27</span><span class="agent-stat__label">Requests (24h)</span></div>
+              <div class="agent-stat"><span class="agent-stat__value">89</span><span class="agent-stat__label">Actions done</span></div>
+              <div class="agent-stat"><span class="agent-stat__value">5,412</span><span class="agent-stat__label">Data points</span></div>
+              <div class="agent-stat"><span class="agent-stat__value">Now</span><span class="agent-stat__label">Last active</span></div>
+            </div>
+          </div>
+          <button class="agent-card__toggle" aria-label="Expand agent details">
+            <svg viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 8l4 4 4-4"/></svg>
+          </button>
+        </div>
+
+        <!-- Agent 4: Audit Prep (Locked) -->
+        <div class="agent-card agent-card--locked" data-agent="audit-prep">
+          <div class="agent-card__locked-overlay">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 018 0v4"/></svg>
+            <span>Unlocked at Gate 4</span>
+          </div>
+          <div class="agent-card__header">
+            <div class="agent-card__icon agent-card__icon--muted">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 12h6M9 16h4"/></svg>
+            </div>
+            <div class="agent-card__title-group">
+              <h3 class="agent-card__name">Audit Prep</h3>
+              <span class="agent-card__gate">Gate 4 · Verify</span>
+            </div>
+            <span class="agent-card__status agent-card__status--locked"><svg viewBox="0 0 16 16" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="7" width="8" height="6" rx="1"/><path d="M6 7V5a2 2 0 014 0v2"/></svg> Locked</span>
+          </div>
+          <div class="agent-card__body">
+            <div class="agent-card__section">
+              <h4>What I'll Do</h4>
+              <p>I'll review all collected evidence across Gates 1-3, cross-check data consistency, identify evidence gaps, and assemble an audit-ready evidence bundle with full provenance trails for third-party verification.</p>
+            </div>
+            <div class="agent-card__section">
+              <h4>Connected Systems</h4>
+              <div class="agent-card__systems">
+                <span class="system-badge system-badge--muted">Evidence Store</span>
+                <span class="system-badge system-badge--muted">Framework Checklists</span>
+                <span class="system-badge system-badge--muted">Data Integrity Engine</span>
+              </div>
+            </div>
+            <div class="agent-card__section">
+              <h4>Governance Rules</h4>
+              <div class="agent-card__rules">
+                <span class="rule-badge rule-badge--pending">Evidence completeness 78%</span>
+                <span class="rule-badge rule-badge--pending">Data traceability</span>
+                <span class="rule-badge rule-badge--pending">Gap analysis active</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Agent 5: Report Writer (Locked) -->
+        <div class="agent-card agent-card--locked" data-agent="report-writer">
+          <div class="agent-card__locked-overlay">
+            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V7a4 4 0 018 0v4"/></svg>
+            <span>Unlocked at Gate 5</span>
+          </div>
+          <div class="agent-card__header">
+            <div class="agent-card__icon agent-card__icon--muted">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+            </div>
+            <div class="agent-card__title-group">
+              <h3 class="agent-card__name">Report Writer</h3>
+              <span class="agent-card__gate">Gate 5 · Report</span>
+            </div>
+            <span class="agent-card__status agent-card__status--locked"><svg viewBox="0 0 16 16" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="4" y="7" width="8" height="6" rx="1"/><path d="M6 7V5a2 2 0 014 0v2"/></svg> Locked</span>
+          </div>
+          <div class="agent-card__body">
+            <div class="agent-card__section">
+              <h4>What I'll Do</h4>
+              <p>I'll pull verified data from all previous gates to generate compliant reports — CSRD disclosure statements, CDP questionnaire responses, Evergreen packs, and SBTi submissions — using approved templates with automatic redaction of sensitive data.</p>
+            </div>
+            <div class="agent-card__section">
+              <h4>Connected Systems</h4>
+              <div class="agent-card__systems">
+                <span class="system-badge system-badge--muted">All Gate Data</span>
+                <span class="system-badge system-badge--muted">CSRD Templates</span>
+                <span class="system-badge system-badge--muted">CDP Questionnaire</span>
+                <span class="system-badge system-badge--muted">Evergreen Template</span>
+              </div>
+            </div>
+            <div class="agent-card__section">
+              <h4>Governance Rules</h4>
+              <div class="agent-card__rules">
+                <span class="rule-badge rule-badge--pending">CSRD disclosure coverage 85%</span>
+                <span class="rule-badge rule-badge--pending">Mandatory fields: 42/49</span>
+                <span class="rule-badge rule-badge--pending">Sensitive data redacted</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== VIEW 3: GATE JOURNEY ========== -->
+    <section class="view" id="view-journey">
+      <div class="view__header">
+        <div>
+          <h1 class="view__title">Gate Journey</h1>
+          <p class="view__subtitle">Your path through the 5 sustainability gates. Each gate has an AI agent and governance checkpoint.</p>
+        </div>
+      </div>
+
+      <div class="journey-timeline">
+        <!-- Gate 1 -->
+        <div class="journey-gate journey-gate--passed" data-gate="1">
+          <div class="journey-gate__marker">
+            <div class="journey-gate__dot journey-gate__dot--passed">
+              <svg viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 10 8 13 15 6"/></svg>
+            </div>
+            <div class="journey-gate__line"></div>
+          </div>
+          <div class="journey-gate__content">
+            <div class="journey-gate__header">
+              <h3>Gate 1: Assess</h3>
+              <span class="journey-gate__date">Completed 15 Jan 2026</span>
+            </div>
+            <p class="journey-gate__desc">Baseline carbon footprint assessment. Your Carbon Auditor agent scanned 2 years of financial records and energy data to build your GHG inventory.</p>
+            <div class="journey-gate__agent">
+              <svg viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="7" r="3"/><path d="M4 17c0-3.3 2.7-6 6-6s6 2.7 6 6"/></svg>
+              <span>Carbon Auditor</span>
+            </div>
+            <div class="journey-gate__governance">
+              <h4>Governance Checkpoint</h4>
+              <div class="governance-checks">
+                <span class="gov-check gov-check--pass">GHG Protocol methodology ✓</span>
+                <span class="gov-check gov-check--pass">Confidence tiers disclosed ✓</span>
+                <span class="gov-check gov-check--pass">Supplier identifiers redacted ✓</span>
+              </div>
+              <div class="governance-stamp">Governance check: PASSED — 15 Jan 2026</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Gate 2 -->
+        <div class="journey-gate journey-gate--passed" data-gate="2">
+          <div class="journey-gate__marker">
+            <div class="journey-gate__dot journey-gate__dot--passed">
+              <svg viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="#fff" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="5 10 8 13 15 6"/></svg>
+            </div>
+            <div class="journey-gate__line"></div>
+          </div>
+          <div class="journey-gate__content">
+            <div class="journey-gate__header">
+              <h3>Gate 2: Plan</h3>
+              <span class="journey-gate__date">Completed 28 Feb 2026</span>
+            </div>
+            <p class="journey-gate__desc">Carbon Reduction Plan development. Your Strategy Builder agent produced a science-based target aligned with SBTi near-term criteria and PPN 06/21 requirements.</p>
+            <div class="journey-gate__agent">
+              <svg viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="7" r="3"/><path d="M4 17c0-3.3 2.7-6 6-6s6 2.7 6 6"/></svg>
+              <span>Strategy Builder</span>
+            </div>
+            <div class="journey-gate__governance">
+              <h4>Governance Checkpoint</h4>
+              <div class="governance-checks">
+                <span class="gov-check gov-check--pass">SBTi criteria alignment ✓</span>
+                <span class="gov-check gov-check--pass">PPN 06/21 compliant ✓</span>
+                <span class="gov-check gov-check--pass">Data consistent with baseline ✓</span>
+              </div>
+              <div class="governance-stamp">Governance check: PASSED — 28 Feb 2026</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Gate 3 -->
+        <div class="journey-gate journey-gate--current" data-gate="3">
+          <div class="journey-gate__marker">
+            <div class="journey-gate__dot journey-gate__dot--current">
+              <span class="pulse-ring"></span>
+              3
+            </div>
+            <div class="journey-gate__line"></div>
+          </div>
+          <div class="journey-gate__content">
+            <div class="journey-gate__header">
+              <h3>Gate 3: Implement</h3>
+              <span class="journey-gate__badge journey-gate__badge--current">In Progress</span>
+            </div>
+            <p class="journey-gate__desc">Execution and monitoring. Your Progress Tracker agent is continuously collecting monthly emissions data, tracking against targets, and managing supplier engagement.</p>
+            <div class="journey-gate__agent journey-gate__agent--active">
+              <svg viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="7" r="3"/><path d="M4 17c0-3.3 2.7-6 6-6s6 2.7 6 6"/></svg>
+              <span>Progress Tracker</span>
+              <span class="typing-dots"><span>.</span><span>.</span><span>.</span></span>
+            </div>
+            <div class="journey-gate__governance">
+              <h4>Governance Checkpoint</h4>
+              <div class="governance-checks">
+                <span class="gov-check gov-check--pass">Data freshness &lt; 30 days ✓</span>
+                <span class="gov-check gov-check--pass">Target trajectory monitored ✓</span>
+                <span class="gov-check gov-check--pending">Supplier coverage 72% — pending</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Gate 4 -->
+        <div class="journey-gate journey-gate--locked" data-gate="4">
+          <div class="journey-gate__marker">
+            <div class="journey-gate__dot journey-gate__dot--locked">
+              <svg viewBox="0 0 20 20" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="9" width="10" height="8" rx="1.5"/><path d="M7 9V6a3 3 0 016 0v3"/></svg>
+            </div>
+            <div class="journey-gate__line"></div>
+          </div>
+          <div class="journey-gate__content">
+            <div class="journey-gate__header">
+              <h3>Gate 4: Verify</h3>
+              <span class="journey-gate__badge journey-gate__badge--locked">Locked</span>
+            </div>
+            <p class="journey-gate__desc">Third-party verification prep. Audit Prep agent will cross-check data consistency, identify evidence gaps, and assemble an audit-ready evidence bundle.</p>
+            <div class="journey-gate__agent journey-gate__agent--locked">
+              <svg viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="7" r="3"/><path d="M4 17c0-3.3 2.7-6 6-6s6 2.7 6 6"/></svg>
+              <span>Audit Prep</span>
+            </div>
+            <div class="journey-gate__governance">
+              <h4>Governance Checkpoint</h4>
+              <div class="governance-checks">
+                <span class="gov-check gov-check--pending">Evidence completeness — pending</span>
+                <span class="gov-check gov-check--pending">Data traceability — pending</span>
+                <span class="gov-check gov-check--pending">Gap analysis — pending</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Gate 5 -->
+        <div class="journey-gate journey-gate--locked" data-gate="5">
+          <div class="journey-gate__marker">
+            <div class="journey-gate__dot journey-gate__dot--locked">
+              <svg viewBox="0 0 20 20" width="12" height="12" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="5" y="9" width="10" height="8" rx="1.5"/><path d="M7 9V6a3 3 0 016 0v3"/></svg>
+            </div>
+          </div>
+          <div class="journey-gate__content">
+            <div class="journey-gate__header">
+              <h3>Gate 5: Report</h3>
+              <span class="journey-gate__badge journey-gate__badge--locked">Locked</span>
+            </div>
+            <p class="journey-gate__desc">Compliant report generation. Report Writer agent will generate CSRD statements, CDP responses, and SBTi disclosures using approved templates.</p>
+            <div class="journey-gate__agent journey-gate__agent--locked">
+              <svg viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="10" cy="7" r="3"/><path d="M4 17c0-3.3 2.7-6 6-6s6 2.7 6 6"/></svg>
+              <span>Report Writer</span>
+            </div>
+            <div class="journey-gate__governance">
+              <h4>Governance Checkpoint</h4>
+              <div class="governance-checks">
+                <span class="gov-check gov-check--pending">CSRD disclosure coverage — pending</span>
+                <span class="gov-check gov-check--pending">Mandatory field coverage — pending</span>
+                <span class="gov-check gov-check--pending">Sensitive data redaction — pending</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== VIEW 4: GOVERNANCE ========== -->
+    <section class="view" id="view-governance">
+      <div class="view__header">
+        <div>
+          <h1 class="view__title">Governance</h1>
+          <p class="view__subtitle">Every agent output passes through compliance gates before release. Framework enforcement, data integrity, and redaction — all automated.</p>
+        </div>
+      </div>
+
+      <!-- Governance Pipeline -->
+      <div class="gov-pipeline">
+        <div class="gov-pipeline__step">
+          <div class="gov-pipeline__icon">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M6 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M16 4l2 2-2 2"/></svg>
+          </div>
+          <div class="gov-pipeline__label">Agent Output</div>
+        </div>
+        <div class="gov-pipeline__arrow">
+          <svg viewBox="0 0 24 12" width="24" height="12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M2 6h18M16 2l4 4-4 4"/></svg>
+        </div>
+        <div class="gov-pipeline__step">
+          <div class="gov-pipeline__icon gov-pipeline__icon--blue">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><path d="M9 12l2 2 4-4"/></svg>
+          </div>
+          <div class="gov-pipeline__label">Framework Check</div>
+        </div>
+        <div class="gov-pipeline__arrow">
+          <svg viewBox="0 0 24 12" width="24" height="12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M2 6h18M16 2l4 4-4 4"/></svg>
+        </div>
+        <div class="gov-pipeline__step">
+          <div class="gov-pipeline__icon gov-pipeline__icon--teal">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <div class="gov-pipeline__label">Data Integrity</div>
+        </div>
+        <div class="gov-pipeline__arrow">
+          <svg viewBox="0 0 24 12" width="24" height="12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M2 6h18M16 2l4 4-4 4"/></svg>
+        </div>
+        <div class="gov-pipeline__step">
+          <div class="gov-pipeline__icon gov-pipeline__icon--red">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9l6 6M15 9l-6 6"/></svg>
+          </div>
+          <div class="gov-pipeline__label">Redaction</div>
+        </div>
+        <div class="gov-pipeline__arrow">
+          <svg viewBox="0 0 24 12" width="24" height="12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M2 6h18M16 2l4 4-4 4"/></svg>
+        </div>
+        <div class="gov-pipeline__step">
+          <div class="gov-pipeline__icon gov-pipeline__icon--amber">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83"/><circle cx="12" cy="12" r="4"/></svg>
+          </div>
+          <div class="gov-pipeline__label">Confidence Score</div>
+        </div>
+        <div class="gov-pipeline__arrow">
+          <svg viewBox="0 0 24 12" width="24" height="12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M2 6h18M16 2l4 4-4 4"/></svg>
+        </div>
+        <div class="gov-pipeline__step gov-pipeline__step--final">
+          <div class="gov-pipeline__icon gov-pipeline__icon--green">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
+          <div class="gov-pipeline__label">Approved Output</div>
+        </div>
+      </div>
+
+      <!-- Governance Rules Table -->
+      <div class="gov-section">
+        <h2 class="gov-section__title">Active Governance Rules</h2>
+        <div class="table-wrap">
+          <table class="gov-table">
+            <thead>
+              <tr>
+                <th>Rule</th>
+                <th>Framework</th>
+                <th>Type</th>
+                <th>Status</th>
+                <th>Last Triggered</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>GHG Protocol methodology compliance</td>
+                <td><span class="framework-tag">GHG Protocol</span></td>
+                <td>Validation</td>
+                <td><span class="status-pill status-pill--active">Active ✓</span></td>
+                <td>2 hours ago</td>
+              </tr>
+              <tr>
+                <td>Science-Based Targets alignment</td>
+                <td><span class="framework-tag">SBTi</span></td>
+                <td>Validation</td>
+                <td><span class="status-pill status-pill--active">Active ✓</span></td>
+                <td>1 day ago</td>
+              </tr>
+              <tr>
+                <td>CSRD disclosure completeness</td>
+                <td><span class="framework-tag">CSRD</span></td>
+                <td>Completeness</td>
+                <td><span class="status-pill status-pill--active">Active ✓</span></td>
+                <td>3 hours ago</td>
+              </tr>
+              <tr>
+                <td>Supplier identifier redaction</td>
+                <td><span class="framework-tag">All</span></td>
+                <td>Redaction</td>
+                <td><span class="status-pill status-pill--active">Active ✓</span></td>
+                <td>30 min ago</td>
+              </tr>
+              <tr>
+                <td>Confidence tier disclosure</td>
+                <td><span class="framework-tag">GHG Protocol</span></td>
+                <td>Transparency</td>
+                <td><span class="status-pill status-pill--active">Active ✓</span></td>
+                <td>2 hours ago</td>
+              </tr>
+              <tr>
+                <td>PPN 06/21 compliance check</td>
+                <td><span class="framework-tag">PPN 06/21</span></td>
+                <td>Validation</td>
+                <td><span class="status-pill status-pill--active">Active ✓</span></td>
+                <td>5 days ago</td>
+              </tr>
+              <tr>
+                <td>Data freshness validation</td>
+                <td><span class="framework-tag">All</span></td>
+                <td>Integrity</td>
+                <td><span class="status-pill status-pill--active">Active ✓</span></td>
+                <td>Continuous</td>
+              </tr>
+              <tr>
+                <td>Emission factor version check</td>
+                <td><span class="framework-tag">GHG Protocol</span></td>
+                <td>Accuracy</td>
+                <td><span class="status-pill status-pill--active">Active ✓</span></td>
+                <td>1 day ago</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Governance Log -->
+      <div class="gov-section">
+        <div class="gov-section__header">
+          <h2 class="gov-section__title">Governance Log</h2>
+          <div class="filter-pills" id="govFilters">
+            <button class="filter-pill filter-pill--active" data-filter="all">All</button>
+            <button class="filter-pill" data-filter="passed">Passed</button>
+            <button class="filter-pill" data-filter="flagged">Flagged</button>
+            <button class="filter-pill" data-filter="blocked">Blocked</button>
+          </div>
+        </div>
+        <div class="gov-log" id="govLog">
+          <div class="gov-log__entry" data-type="passed">
+            <div class="gov-log__dot gov-log__dot--passed"></div>
+            <div class="gov-log__content">
+              <div class="gov-log__text">Carbon Auditor output → GHG Protocol check: <span class="gov-log__result gov-log__result--passed">PASSED</span></div>
+              <div class="gov-log__time">2 hours ago</div>
+            </div>
+          </div>
+          <div class="gov-log__entry" data-type="passed">
+            <div class="gov-log__dot gov-log__dot--passed"></div>
+            <div class="gov-log__content">
+              <div class="gov-log__text">Carbon Auditor → Supplier names: <span class="gov-log__result gov-log__result--passed">REDACTED</span> from external report</div>
+              <div class="gov-log__time">2 hours ago</div>
+            </div>
+          </div>
+          <div class="gov-log__entry" data-type="flagged">
+            <div class="gov-log__dot gov-log__dot--flagged"></div>
+            <div class="gov-log__content">
+              <div class="gov-log__text">Progress Tracker → Supplier data: <span class="gov-log__result gov-log__result--flagged">FLAGGED</span> — 3 suppliers missing Scope 3 responses</div>
+              <div class="gov-log__time">30 min ago</div>
+            </div>
+          </div>
+          <div class="gov-log__entry" data-type="passed">
+            <div class="gov-log__dot gov-log__dot--passed"></div>
+            <div class="gov-log__content">
+              <div class="gov-log__text">Strategy Builder → SBTi alignment: <span class="gov-log__result gov-log__result--passed">PASSED</span></div>
+              <div class="gov-log__time">1 day ago</div>
+            </div>
+          </div>
+          <div class="gov-log__entry" data-type="blocked">
+            <div class="gov-log__dot gov-log__dot--blocked"></div>
+            <div class="gov-log__content">
+              <div class="gov-log__text">Report Writer → CSRD coverage: <span class="gov-log__result gov-log__result--blocked">BLOCKED</span> — 7 mandatory fields incomplete</div>
+              <div class="gov-log__time">3 days ago</div>
+            </div>
+          </div>
+          <div class="gov-log__entry" data-type="passed">
+            <div class="gov-log__dot gov-log__dot--passed"></div>
+            <div class="gov-log__content">
+              <div class="gov-log__text">Progress Tracker → Data freshness: <span class="gov-log__result gov-log__result--passed">PASSED</span> — all sources &lt; 30 days</div>
+              <div class="gov-log__time">3 days ago</div>
+            </div>
+          </div>
+          <div class="gov-log__entry" data-type="flagged">
+            <div class="gov-log__dot gov-log__dot--flagged"></div>
+            <div class="gov-log__content">
+              <div class="gov-log__text">Carbon Auditor → Emission factor check: <span class="gov-log__result gov-log__result--flagged">FLAGGED</span> — DEFRA 2025 factors pending update</div>
+              <div class="gov-log__time">5 days ago</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ContextGate Comparison -->
+      <div class="comparison-card">
+        <h3 class="comparison-card__title">How GreenGate governance works — inspired by AI agent governance platforms</h3>
+        <div class="comparison-grid">
+          <div class="comparison-col">
+            <h4 class="comparison-col__header">AI Agent Governance</h4>
+            <ul class="comparison-list">
+              <li>PII redaction</li>
+              <li>GDPR / HIPAA enforcement</li>
+              <li>Tool connectors (APIs)</li>
+              <li>Audit trails</li>
+              <li>Policy templates</li>
+            </ul>
+          </div>
+          <div class="comparison-divider">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M8 6l4-4 4 4M8 18l4 4 4-4M12 2v20"/></svg>
+          </div>
+          <div class="comparison-col">
+            <h4 class="comparison-col__header comparison-col__header--green">Sustainability Governance</h4>
+            <ul class="comparison-list">
+              <li>Supplier data redaction</li>
+              <li>CSRD / GHG / SBTi enforcement</li>
+              <li>Accounting / ERP connectors</li>
+              <li>Evidence provenance</li>
+              <li>Framework rule templates</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== VIEW 5: EVIDENCE ========== -->
+    <section class="view" id="view-evidence">
+      <div class="view__header">
+        <div>
+          <h1 class="view__title">Evidence</h1>
+          <p class="view__subtitle">All uploaded documents and data sources for your sustainability claims.</p>
+        </div>
+        <div class="view__header-actions">
+          <button class="btn btn--primary">
+            <svg viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10 4v12M4 10h12"/></svg>
+            Upload Evidence
+          </button>
+        </div>
+      </div>
+
+      <div class="filter-pills" id="evidenceFilters">
+        <button class="filter-pill filter-pill--active" data-filter="all">All <span class="filter-count">12</span></button>
+        <button class="filter-pill" data-filter="approved">Approved <span class="filter-count">7</span></button>
+        <button class="filter-pill" data-filter="pending">Pending <span class="filter-count">3</span></button>
+        <button class="filter-pill" data-filter="rejected">Rejected <span class="filter-count">2</span></button>
+      </div>
+
+      <div class="table-wrap">
+        <table class="evidence-table">
+          <thead>
+            <tr>
+              <th>Document</th>
+              <th>Type</th>
+              <th>Gate</th>
+              <th>Uploaded</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody id="evidenceTableBody">
+            <tr data-status="approved">
+              <td class="evidence-table__name">
+                <svg viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 3h7l4 4v10a1 1 0 01-1 1H5a1 1 0 01-1-1V4a1 1 0 011-1z"/><path d="M12 3v4h4"/></svg>
+                Energy Bills 2024-25.pdf
+              </td>
+              <td>Energy Data</td>
+              <td>Gate 1</td>
+              <td>12 Jan 2026</td>
+              <td><span class="status-pill status-pill--approved">Approved</span></td>
+            </tr>
+            <tr data-status="approved">
+              <td class="evidence-table__name">
+                <svg viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 3h7l4 4v10a1 1 0 01-1 1H5a1 1 0 01-1-1V4a1 1 0 011-1z"/><path d="M12 3v4h4"/></svg>
+                Xero Export — FY2024.csv
+              </td>
+              <td>Financial</td>
+              <td>Gate 1</td>
+              <td>10 Jan 2026</td>
+              <td><span class="status-pill status-pill--approved">Approved</span></td>
+            </tr>
+            <tr data-status="approved">
+              <td class="evidence-table__name">
+                <svg viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 3h7l4 4v10a1 1 0 01-1 1H5a1 1 0 01-1-1V4a1 1 0 011-1z"/><path d="M12 3v4h4"/></svg>
+                GHG Baseline Report v2.pdf
+              </td>
+              <td>Assessment</td>
+              <td>Gate 1</td>
+              <td>15 Jan 2026</td>
+              <td><span class="status-pill status-pill--approved">Approved</span></td>
+            </tr>
+            <tr data-status="approved">
+              <td class="evidence-table__name">
+                <svg viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 3h7l4 4v10a1 1 0 01-1 1H5a1 1 0 01-1-1V4a1 1 0 011-1z"/><path d="M12 3v4h4"/></svg>
+                Carbon Reduction Plan v3.pdf
+              </td>
+              <td>Strategy</td>
+              <td>Gate 2</td>
+              <td>28 Feb 2026</td>
+              <td><span class="status-pill status-pill--approved">Approved</span></td>
+            </tr>
+            <tr data-status="approved">
+              <td class="evidence-table__name">
+                <svg viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 3h7l4 4v10a1 1 0 01-1 1H5a1 1 0 01-1-1V4a1 1 0 011-1z"/><path d="M12 3v4h4"/></svg>
+                SBTi Target Submission.pdf
+              </td>
+              <td>Framework</td>
+              <td>Gate 2</td>
+              <td>1 Mar 2026</td>
+              <td><span class="status-pill status-pill--approved">Approved</span></td>
+            </tr>
+            <tr data-status="pending">
+              <td class="evidence-table__name">
+                <svg viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 3h7l4 4v10a1 1 0 01-1 1H5a1 1 0 01-1-1V4a1 1 0 011-1z"/><path d="M12 3v4h4"/></svg>
+                Feb 2026 Energy Data.xlsx
+              </td>
+              <td>Energy Data</td>
+              <td>Gate 3</td>
+              <td>5 Mar 2026</td>
+              <td><span class="status-pill status-pill--pending">Pending</span></td>
+            </tr>
+            <tr data-status="pending">
+              <td class="evidence-table__name">
+                <svg viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 3h7l4 4v10a1 1 0 01-1 1H5a1 1 0 01-1-1V4a1 1 0 011-1z"/><path d="M12 3v4h4"/></svg>
+                Supplier Responses — Scope 3.csv
+              </td>
+              <td>Supplier Data</td>
+              <td>Gate 3</td>
+              <td>3 Mar 2026</td>
+              <td><span class="status-pill status-pill--pending">Pending</span></td>
+            </tr>
+            <tr data-status="approved">
+              <td class="evidence-table__name">
+                <svg viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 3h7l4 4v10a1 1 0 01-1 1H5a1 1 0 01-1-1V4a1 1 0 011-1z"/><path d="M12 3v4h4"/></svg>
+                PPN 06/21 Checklist.pdf
+              </td>
+              <td>Compliance</td>
+              <td>Gate 2</td>
+              <td>25 Feb 2026</td>
+              <td><span class="status-pill status-pill--approved">Approved</span></td>
+            </tr>
+            <tr data-status="approved">
+              <td class="evidence-table__name">
+                <svg viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 3h7l4 4v10a1 1 0 01-1 1H5a1 1 0 01-1-1V4a1 1 0 011-1z"/><path d="M12 3v4h4"/></svg>
+                Fleet Fuel Records 2024.xlsx
+              </td>
+              <td>Transport</td>
+              <td>Gate 1</td>
+              <td>8 Jan 2026</td>
+              <td><span class="status-pill status-pill--approved">Approved</span></td>
+            </tr>
+            <tr data-status="pending">
+              <td class="evidence-table__name">
+                <svg viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 3h7l4 4v10a1 1 0 01-1 1H5a1 1 0 01-1-1V4a1 1 0 011-1z"/><path d="M12 3v4h4"/></svg>
+                March 2026 Xero Export.csv
+              </td>
+              <td>Financial</td>
+              <td>Gate 3</td>
+              <td>7 Mar 2026</td>
+              <td><span class="status-pill status-pill--pending">Pending</span></td>
+            </tr>
+            <tr data-status="rejected">
+              <td class="evidence-table__name">
+                <svg viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 3h7l4 4v10a1 1 0 01-1 1H5a1 1 0 01-1-1V4a1 1 0 011-1z"/><path d="M12 3v4h4"/></svg>
+                Water Bill Scan (illegible).jpg
+              </td>
+              <td>Utility</td>
+              <td>Gate 1</td>
+              <td>9 Jan 2026</td>
+              <td><span class="status-pill status-pill--rejected">Rejected</span></td>
+            </tr>
+            <tr data-status="rejected">
+              <td class="evidence-table__name">
+                <svg viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 3h7l4 4v10a1 1 0 01-1 1H5a1 1 0 01-1-1V4a1 1 0 011-1z"/><path d="M12 3v4h4"/></svg>
+                Old Emission Factors (2019).pdf
+              </td>
+              <td>Reference</td>
+              <td>Gate 1</td>
+              <td>11 Jan 2026</td>
+              <td><span class="status-pill status-pill--rejected">Rejected</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ========== VIEW 6: REPORTS ========== -->
+    <section class="view" id="view-reports">
+      <div class="view__header">
+        <div>
+          <h1 class="view__title">Reports</h1>
+          <p class="view__subtitle">Generate compliant sustainability reports from your verified data.</p>
+        </div>
+        <div class="view__header-actions">
+          <button class="btn btn--primary">
+            <svg viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M10 4v12M4 10h12"/></svg>
+            Generate Report
+          </button>
+        </div>
+      </div>
+
+      <!-- Report Templates -->
+      <div class="report-templates">
+        <h2 class="section-title">Available Templates</h2>
+        <div class="report-templates__grid">
+          <div class="report-template">
+            <div class="report-template__icon report-template__icon--green">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            </div>
+            <h3>CSRD Statement</h3>
+            <p>EU Corporate Sustainability Reporting Directive disclosure</p>
+            <span class="report-template__status">85% ready</span>
+          </div>
+          <div class="report-template">
+            <div class="report-template__icon report-template__icon--blue">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            </div>
+            <h3>CDP Questionnaire</h3>
+            <p>Carbon Disclosure Project climate change response</p>
+            <span class="report-template__status">72% ready</span>
+          </div>
+          <div class="report-template">
+            <div class="report-template__icon report-template__icon--amber">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            </div>
+            <h3>Evergreen Pack</h3>
+            <p>Standardised sustainability evidence for procurement</p>
+            <span class="report-template__status">90% ready</span>
+          </div>
+          <div class="report-template">
+            <div class="report-template__icon report-template__icon--teal">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            </div>
+            <h3>SBTi Disclosure</h3>
+            <p>Science-Based Targets initiative public commitment</p>
+            <span class="report-template__status">68% ready</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Generated Reports -->
+      <div class="gov-section">
+        <h2 class="section-title">Generated Reports</h2>
+        <div class="table-wrap">
+          <table class="evidence-table">
+            <thead>
+              <tr>
+                <th>Report</th>
+                <th>Template</th>
+                <th>Generated</th>
+                <th>Agent</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="evidence-table__name">
+                  <svg viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 3h7l4 4v10a1 1 0 01-1 1H5a1 1 0 01-1-1V4a1 1 0 011-1z"/><path d="M12 3v4h4"/></svg>
+                  GHG Baseline Report — FY2024
+                </td>
+                <td>GHG Protocol</td>
+                <td>15 Jan 2026</td>
+                <td>Carbon Auditor</td>
+                <td><span class="status-pill status-pill--approved">Final</span></td>
+              </tr>
+              <tr>
+                <td class="evidence-table__name">
+                  <svg viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 3h7l4 4v10a1 1 0 01-1 1H5a1 1 0 01-1-1V4a1 1 0 011-1z"/><path d="M12 3v4h4"/></svg>
+                  Carbon Reduction Plan v3
+                </td>
+                <td>PPN 06/21</td>
+                <td>28 Feb 2026</td>
+                <td>Strategy Builder</td>
+                <td><span class="status-pill status-pill--approved">Final</span></td>
+              </tr>
+              <tr>
+                <td class="evidence-table__name">
+                  <svg viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 3h7l4 4v10a1 1 0 01-1 1H5a1 1 0 01-1-1V4a1 1 0 011-1z"/><path d="M12 3v4h4"/></svg>
+                  Monthly Progress — Feb 2026
+                </td>
+                <td>Internal</td>
+                <td>5 Mar 2026</td>
+                <td>Progress Tracker</td>
+                <td><span class="status-pill status-pill--approved">Final</span></td>
+              </tr>
+              <tr>
+                <td class="evidence-table__name">
+                  <svg viewBox="0 0 20 20" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 3h7l4 4v10a1 1 0 01-1 1H5a1 1 0 01-1-1V4a1 1 0 011-1z"/><path d="M12 3v4h4"/></svg>
+                  CSRD Draft Disclosure
+                </td>
+                <td>CSRD</td>
+                <td>6 Mar 2026</td>
+                <td>Report Writer</td>
+                <td><span class="status-pill status-pill--pending">Draft</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+      <a href="https://www.perplexity.ai/computer" target="_blank" rel="noopener noreferrer">Created with Perplexity Computer</a>
+    </footer>
+
+  </main>
+</div>
+
+<!-- MOBILE OVERLAY -->
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+agent: strategy_builder
+gate: 2
+constraints:
+  - "CRP must meet PPN 006 Technical Standard requirements"
+  - "SBTi targets must align with 1.5C pathway"
+  - "All recommendations must reference the baseline emissions data"
+  - "Include NHS Evergreen requirements where applicable"
+  - "Director sign-off section must be included in CRP"
+allowed_actions:
+  - generate_crp
+  - calculate_sbti_target
+  - recommend_frameworks
+data_access:
+  - emissions_inventory
+  - crp_documents
+  - frameworks

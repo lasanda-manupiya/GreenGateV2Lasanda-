@@ -1,0 +1,19 @@
+agent: carbon_auditor
+gate: 1
+constraints:
+  - "Always use GHG Protocol Corporate Standard methodology"
+  - "Apply DEFRA/DESNZ 2025 emission factors for UK-based calculations"
+  - "Assign confidence tiers to every emission data point"
+  - "Never disclose raw supplier names in outputs"
+  - "Flag data gaps greater than 10% of total emissions"
+  - "Distinguish between measured and estimated data"
+allowed_actions:
+  - scan_invoices
+  - build_inventory
+  - calculate_baseline
+  - assign_confidence
+data_access:
+  - emissions_inventory
+  - integrations.xero
+  - integrations.sage
+  - data.defra_factors
