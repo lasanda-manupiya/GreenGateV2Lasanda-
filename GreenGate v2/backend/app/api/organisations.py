@@ -19,6 +19,11 @@ from app.services.organisation_service import (
     get_organisation,
     update_organisation,
 )
+from app.api.reports import (
+    get_dashboard as get_reports_dashboard,
+    get_framework_report as get_reports_framework_report,
+    create_evidence_pack as create_reports_evidence_pack,
+)
 
 router = APIRouter(prefix="/organisations", tags=["organisations"])
 
@@ -72,3 +77,44 @@ async def get_org_gate_status(
     if not result:
         raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Organisation not found")
     return result
+
+
+# ---------------------------------------------------------------------------
+# Backward-compatible aliases for legacy frontend routes.
+# ---------------------------------------------------------------------------
+
+
+@router.get("/{org_id}/dashboard")
+async def get_org_dashboard_legacy(
+    org_id: uuid.UUID,
+    db: AsyncSession = Depends(get_db),
+    user: User = Depends(get_current_user),
+):
+    """Legacy alias for /reports/{org_id}/dashboard."""
+    return await get_reports_dashboard(org_id=org_id, db=db, user=user)
+
+
+@router.get("/{org_id}/reports/framework/{framework_id}")
+async def get_org_framework_report_legacy(
+    org_id: uuid.UUID,
+    framework_id: uuid.UUID,
+    db: AsyncSession = Depends(get_db),
+    user: User = Depends(get_current_user),
+):
+    """Legacy alias for /reports/{org_id}/{framework_id}."""
+    return await get_reports_framework_report(
+        org_id=org_id,
+        framework_id=framework_id,
+        db=db,
+        user=user,
+    )
+
+
+@router.post("/{org_id}/reports/evidence-pack")
+async def create_org_evidence_pack_legacy(
+    org_id: uuid.UUID,
+    db: AsyncSession = Depends(get_db),
+    user: User = Depends(require_role("editor")),
+):
+    """Legacy alias for /reports/{org_id}/evidence-pack."""
+    return await create_reports_evidence_pack(org_id=org_id, db=db, user=user)

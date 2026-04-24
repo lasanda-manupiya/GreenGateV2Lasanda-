@@ -31,3 +31,4 @@ class AgentRunResponse(BaseModel):
     status: str
     result: dict = {}
     audit_entries: list = []
+    llm_runtime: Optional[dict] = None
