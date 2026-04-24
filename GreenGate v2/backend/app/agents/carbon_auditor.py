@@ -179,7 +179,7 @@ class CarbonAuditor(BaseAgent):
             co2e_tonnes = co2e_kg / Decimal("1000")
 
             entry = EmissionsInventory(
-                organisation_id=org_id,
+                organisation_id=str(org_id),
                 reporting_year=reporting_year,
                 scope=agg["scope"],
                 category=agg["category"],
@@ -223,7 +223,7 @@ class CarbonAuditor(BaseAgent):
             func.sum(EmissionsInventory.co2e_tonnes),
             func.count(EmissionsInventory.id),
         ).where(
-            EmissionsInventory.organisation_id == org_id
+            EmissionsInventory.organisation_id == str(org_id)
         ).group_by(EmissionsInventory.scope)
 
         if reporting_year:
@@ -262,7 +262,7 @@ class CarbonAuditor(BaseAgent):
         # Fetch inventory
         result = await self.db.execute(
             select(EmissionsInventory)
-            .where(EmissionsInventory.organisation_id == org_id)
+            .where(EmissionsInventory.organisation_id == str(org_id))
             .order_by(EmissionsInventory.scope, EmissionsInventory.category)
         )
         entries = list(result.scalars().all())
