@@ -67,6 +67,8 @@ const frameworkRecommendations = [
   { id: 'uk_srs', name: 'UK SRS', relevance: 60, description: 'UK Sustainability Reporting Standards becoming mandatory for large organisations.', category: 'Upcoming' },
 ];
 
+type GenerateCrpResponse = Awaited<ReturnType<typeof generateCrp>>;
+
 export function Gate2Page() {
   const { user } = useAuth();
   const [baseYear, setBaseYear] = useState('2025');
