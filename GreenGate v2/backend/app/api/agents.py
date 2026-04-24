@@ -86,7 +86,12 @@ async def run_agent(
 
     # Set up governance and Claude client
     governance_engine = GovernanceEngine(db)
-    claude_client = ClaudeClient(settings.ANTHROPIC_API_KEY)
+    claude_client = ClaudeClient(
+        anthropic_api_key=settings.ANTHROPIC_API_KEY,
+        provider=settings.LLM_PROVIDER,
+        openai_api_key=settings.OPENAI_API_KEY,
+        openai_model=settings.OPENAI_MODEL,
+    )
 
     # Instantiate agent
     agent_instance = agent_cls(agent_record, governance_engine, claude_client, db)
