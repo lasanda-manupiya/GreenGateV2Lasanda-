@@ -28,6 +28,11 @@ class Settings(BaseSettings):
 
     # Anthropic
     ANTHROPIC_API_KEY: str = ""
+    # LLM provider switch: "openai" (default) or "anthropic"
+    LLM_PROVIDER: str = "openai"
+    # OpenAI (used when LLM_PROVIDER=openai)
+    OPENAI_API_KEY: str = ""
+    OPENAI_MODEL: str = "gpt-4.1-mini"
 
     # CORS
     CORS_ORIGINS: str = "http://localhost:5173"

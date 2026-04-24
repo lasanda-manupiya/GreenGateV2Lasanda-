@@ -38,7 +38,12 @@ async def generate_crp(
         )
 
     governance_engine = GovernanceEngine(db)
-    claude_client = ClaudeClient(settings.ANTHROPIC_API_KEY)
+    claude_client = ClaudeClient(
+        anthropic_api_key=settings.ANTHROPIC_API_KEY,
+        provider=settings.LLM_PROVIDER,
+        openai_api_key=settings.OPENAI_API_KEY,
+        openai_model=settings.OPENAI_MODEL,
+    )
     agent = StrategyBuilder(agent_record, governance_engine, claude_client, db)
 
     agent_result = await agent.run_action(
@@ -51,6 +56,7 @@ async def generate_crp(
         "status": agent_result.status,
         "crp": agent_result.data,
         "audit_entries": agent_result.audit_entries,
+        "llm_runtime": claude_client.runtime_info(),
     }
 
 
