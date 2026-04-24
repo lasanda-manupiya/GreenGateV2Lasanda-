@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useMutation } from '@tanstack/react-query';
 import { useAuth } from '../../auth/useAuth';
-import { generateCrp } from '../../api/crp';
+import { generateCrp, type GenerateCrpResponse } from '../../api/crp';
 import { Card } from '../../components/ui/Card';
 import { Badge } from '../../components/ui/Badge';
 import { Button } from '../../components/ui/Button';
@@ -73,7 +73,7 @@ export function Gate2Page() {
   const [baseEmissions, setBaseEmissions] = useState('340');
   const [targetYear, setTargetYear] = useState('2030');
 
-  const crpMutation = useMutation({
+  const crpMutation = useMutation<GenerateCrpResponse, Error>({
     mutationFn: () => generateCrp(user!.org_id),
   });
 
