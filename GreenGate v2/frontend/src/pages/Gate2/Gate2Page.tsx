@@ -67,18 +67,34 @@ const frameworkRecommendations = [
   { id: 'uk_srs', name: 'UK SRS', relevance: 60, description: 'UK Sustainability Reporting Standards becoming mandatory for large organisations.', category: 'Upcoming' },
 ];
 
+type GenerateCrpResponse = Awaited<ReturnType<typeof generateCrp>>;
+
 export function Gate2Page() {
   const { user } = useAuth();
   const [baseYear, setBaseYear] = useState('2025');
   const [baseEmissions, setBaseEmissions] = useState('340');
   const [targetYear, setTargetYear] = useState('2030');
 
-  const crpMutation = useMutation({
+  const crpMutation = useMutation<GenerateCrpResponse, Error>({
     mutationFn: () => generateCrp(user!.org_id),
   });
 
   const crp = mockCrp;
   const trajectory = mockTrajectory;
+  const generatedCrp = crpMutation.data?.crp;
+
+  const handleDownloadCrpJson = () => {
+    const payload = generatedCrp ?? crp;
+    const blob = new Blob([JSON.stringify(payload, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `crp-${user?.org_id ?? 'draft'}.json`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  };
 
   const targetReduction = 42;
   const annualReduction = (targetReduction / (parseInt(targetYear) - parseInt(baseYear))).toFixed(1);
@@ -100,12 +116,20 @@ export function Gate2Page() {
             <FileText className="w-4 h-4" />
             Generate CRP
           </Button>
-          <Button size="sm" variant="secondary">
+          <Button size="sm" variant="secondary" onClick={handleDownloadCrpJson}>
             <Download className="w-4 h-4" />
-            Export as PDF
+            Download CRP JSON
           </Button>
         </div>
       </div>
+
+      {generatedCrp && (
+        <Card header={<h3 className="text-sm font-semibold text-[var(--color-text)]">Generated CRP (Live API Output)</h3>}>
+          <pre className="text-xs whitespace-pre-wrap break-words text-[var(--color-text-muted)]">
+            {JSON.stringify(generatedCrp, null, 2)}
+          </pre>
+        </Card>
+      )}
 
       <div className="space-y-4">
         {crp.sections.map((section, idx) => (
