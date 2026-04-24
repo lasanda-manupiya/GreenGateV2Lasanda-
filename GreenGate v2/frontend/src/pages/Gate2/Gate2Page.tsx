@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useMutation } from '@tanstack/react-query';
 import { useAuth } from '../../auth/useAuth';
-import { generateCrp } from '../../api/crp';
+import { generateCrp, type GenerateCrpResponse } from '../../api/crp';
 import { Card } from '../../components/ui/Card';
 import { Badge } from '../../components/ui/Badge';
 import { Button } from '../../components/ui/Button';
