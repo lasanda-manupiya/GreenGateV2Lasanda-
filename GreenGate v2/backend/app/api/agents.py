@@ -35,6 +35,20 @@ AGENT_TYPE_MAP = {
 }
 
 
+@router.get("/llm/runtime")
+async def get_llm_runtime(
+    user: User = Depends(get_current_user),
+):
+    """Get current LLM runtime mode (openai/anthropic/mock) for diagnostics."""
+    client = ClaudeClient(
+        anthropic_api_key=settings.ANTHROPIC_API_KEY,
+        provider=settings.LLM_PROVIDER,
+        openai_api_key=settings.OPENAI_API_KEY,
+        openai_model=settings.OPENAI_MODEL,
+    )
+    return client.runtime_info()
+
+
 @router.get("/", response_model=List[AgentResponse])
 async def list_agents(
     db: AsyncSession = Depends(get_db),
@@ -112,6 +126,7 @@ async def run_agent(
             status=agent_result.status,
             result=agent_result.data,
             audit_entries=agent_result.audit_entries,
+            llm_runtime=claude_client.runtime_info(),
         )
     except Exception as e:
         agent_record.status = "error"

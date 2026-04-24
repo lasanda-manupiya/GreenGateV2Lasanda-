@@ -46,6 +46,19 @@ class ClaudeClient:
             except Exception as e:
                 logger.warning("Failed to initialise Anthropic client: %s", e)
 
+    def runtime_info(self) -> dict:
+        """Return runtime backend info for diagnostics."""
+        return {
+            "provider_configured": self.provider,
+            "backend_active": self._backend,
+            "is_mock": self._backend == "mock",
+            "model": (
+                self.openai_model
+                if self._backend == "openai"
+                else self.MODEL if self._backend == "anthropic" else None
+            ),
+        }
+
     async def complete(
         self,
         system_prompt: str,
