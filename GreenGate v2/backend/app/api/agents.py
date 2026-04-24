@@ -129,8 +129,7 @@ async def run_agent(
             llm_runtime=claude_client.runtime_info(),
         )
     except Exception as e:
-        agent_record.status = "error"
-        await db.flush()
+        await db.rollback()
         raise HTTPException(
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
             detail=f"Agent execution failed: {str(e)}",
