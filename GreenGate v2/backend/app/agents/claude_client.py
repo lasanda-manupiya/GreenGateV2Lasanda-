@@ -7,19 +7,57 @@ logger = logging.getLogger("sustaingate.claude")
 
 
 class ClaudeClient:
-    """Wrapper around the Anthropic SDK for governed AI completions."""
+    """Wrapper around the configured LLM SDK for governed AI completions.
+
+    Despite the class name, this client can run against Anthropic or OpenAI.
+    Keeping the class name avoids broad refactors and makes provider swaps easy.
+    """
 
     MODEL = "claude-sonnet-4-6"
 
-    def __init__(self, api_key: str):
-        self.api_key = api_key
+    def __init__(
+        self,
+        anthropic_api_key: str,
+        provider: str = "anthropic",
+        openai_api_key: str = "",
+        openai_model: str = "gpt-4.1-mini",
+    ):
+        self.provider = (provider or "anthropic").lower()
+        self.anthropic_api_key = anthropic_api_key
+        self.openai_api_key = openai_api_key
+        self.openai_model = openai_model
         self._client = None
-        if api_key:
+        self._backend = "mock"
+
+        if self.provider == "openai" and openai_api_key:
+            try:
+                from openai import AsyncOpenAI
+
+                self._client = AsyncOpenAI(api_key=openai_api_key)
+                self._backend = "openai"
+            except Exception as e:
+                logger.warning("Failed to initialise OpenAI client: %s", e)
+        elif anthropic_api_key:
             try:
                 import anthropic
-                self._client = anthropic.AsyncAnthropic(api_key=api_key)
+
+                self._client = anthropic.AsyncAnthropic(api_key=anthropic_api_key)
+                self._backend = "anthropic"
             except Exception as e:
                 logger.warning("Failed to initialise Anthropic client: %s", e)
+
+    def runtime_info(self) -> dict:
+        """Return runtime backend info for diagnostics."""
+        return {
+            "provider_configured": self.provider,
+            "backend_active": self._backend,
+            "is_mock": self._backend == "mock",
+            "model": (
+                self.openai_model
+                if self._backend == "openai"
+                else self.MODEL if self._backend == "anthropic" else None
+            ),
+        }
 
     async def complete(
         self,
@@ -45,10 +83,21 @@ class ClaudeClient:
             )
 
         if not self._client:
-            logger.info("No Anthropic API key configured, returning mock response")
+            logger.info("No LLM client configured, returning mock response")
             return self._mock_response(user_message)
 
         try:
+            if self._backend == "openai":
+                response = await self._client.responses.create(
+                    model=self.openai_model,
+                    input=[
+                        {"role": "system", "content": governed_prompt},
+                        {"role": "user", "content": user_message},
+                    ],
+                    max_output_tokens=max_tokens,
+                )
+                return response.output_text
+
             response = await self._client.messages.create(
                 model=self.MODEL,
                 max_tokens=max_tokens,
@@ -57,7 +106,7 @@ class ClaudeClient:
             )
             return response.content[0].text
         except Exception as e:
-            logger.error("Claude API call failed: %s", e)
+            logger.error("LLM API call failed: %s", e)
             return self._mock_response(user_message)
 
     def _mock_response(self, user_message: str) -> str:
@@ -80,7 +129,8 @@ class ClaudeClient:
                 "2. Additional data collection is recommended for Scope 3 categories.\n"
                 "3. Governance compliance checks have passed with minor warnings.\n\n"
                 "Note: This is a mock response generated in development mode. "
-                "Configure ANTHROPIC_API_KEY for production-quality AI outputs."
+                "Configure OPENAI_API_KEY (or ANTHROPIC_API_KEY if using Anthropic) "
+                "for production-quality AI outputs."
             )
 
     def _mock_crp_response(self) -> str:

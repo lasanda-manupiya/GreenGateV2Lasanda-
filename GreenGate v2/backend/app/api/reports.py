@@ -54,7 +54,7 @@ async def get_dashboard(
     # Compliance score (based on approved submissions / total possible)
     approved_count_result = await db.execute(
         select(func.count(Submission.id)).where(
-            Submission.organisation_id == org_id,
+            Submission.organisation_id == str(org_id),
             Submission.status == "approved",
         )
     )
@@ -65,7 +65,7 @@ async def get_dashboard(
     # Recent activity
     audit_result = await db.execute(
         select(AuditEntry)
-        .where(AuditEntry.organisation_id == org_id)
+        .where(AuditEntry.organisation_id == str(org_id))
         .order_by(AuditEntry.timestamp.desc())
         .limit(10)
     )
@@ -114,8 +114,8 @@ async def get_framework_report(
     submissions_result = await db.execute(
         select(Submission)
         .where(
-            Submission.organisation_id == org_id,
-            Submission.framework_id == framework_id,
+            Submission.organisation_id == str(org_id),
+            Submission.framework_id == str(framework_id),
         )
         .order_by(Submission.gate_number)
     )
