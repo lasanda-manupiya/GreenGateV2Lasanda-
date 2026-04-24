@@ -39,7 +39,7 @@ async def create_organisation(db: AsyncSession, data: OrganisationCreate) -> Org
 
 
 async def get_organisation(db: AsyncSession, org_id: uuid.UUID) -> Optional[Organisation]:
-    result = await db.execute(select(Organisation).where(Organisation.id == org_id))
+    result = await db.execute(select(Organisation).where(Organisation.id == str(org_id)))
     return result.scalar_one_or_none()
 
 
@@ -64,7 +64,7 @@ async def get_gate_status(db: AsyncSession, org_id: uuid.UUID) -> dict:
     # Count approved submissions per gate
     result = await db.execute(
         select(Submission.gate_number, func.count(Submission.id))
-        .where(Submission.organisation_id == org_id, Submission.status == "approved")
+        .where(Submission.organisation_id == str(org_id), Submission.status == "approved")
         .group_by(Submission.gate_number)
     )
     approved_by_gate = dict(result.all())
@@ -72,7 +72,7 @@ async def get_gate_status(db: AsyncSession, org_id: uuid.UUID) -> dict:
     # Check if emissions data exists (for gate 1 progress)
     emissions_count_result = await db.execute(
         select(func.count(EmissionsInventory.id)).where(
-            EmissionsInventory.organisation_id == org_id
+            EmissionsInventory.organisation_id == str(org_id)
         )
     )
     emissions_count = emissions_count_result.scalar() or 0
